@@ -1,4 +1,4 @@
-package graphfx.graphcoloring;
+package graphfx.graphcoloring.test;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,12 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import models.Graph;
-import models.GraphColoring;
-import models.Input;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 public class FileController {
 
@@ -55,12 +53,17 @@ public class FileController {
                 // Pass the graph to GameController for initial drawing
                 GameController gameController = loader.getController();
                 gameController.drawInitialGraph(graph);
-                System.out.println(GraphColoring.findChromaticNumber(graph.getAdjacencyList()));
+                gameController.setGraph(graph);
+                System.out.println(GraphColoring.findChromaticNumberParallel(graph.getAdjacencyList()));
             }
         } catch (IOException e) {
             // Handle any I/O errors that occur (e.g., file loading or FXML errors)
             e.printStackTrace();
             showErrorAlert("Error", "Unable to load file or scene. Please try again.");
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

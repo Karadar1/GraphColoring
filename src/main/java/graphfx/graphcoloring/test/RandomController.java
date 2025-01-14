@@ -1,4 +1,4 @@
-package graphfx.graphcoloring;
+package graphfx.graphcoloring.test;
 
 import exceptions.InvalidRandomGraphException;
 import javafx.event.ActionEvent;
@@ -7,12 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import models.Graph;
-import models.GraphColoring;
-import models.Input;
 
 import java.io.IOException;
 
@@ -63,7 +59,7 @@ public class RandomController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-
+            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
             // Update the scene
             currentStage.setScene(scene);
             currentStage.show();
@@ -71,9 +67,10 @@ public class RandomController {
             // Pass the graph to the game controller
             GameController gameController = loader.getController();
             gameController.drawInitialGraph(randomGraph);
+            gameController.setGraph(randomGraph);
 
             // Log the chromatic number
-            System.out.println("Chromatic Number: " + GraphColoring.findChromaticNumber(randomGraph.getAdjacencyList()));
+            System.out.println("Chromatic Number: " + GraphColoring.findChromaticNumberParallel(randomGraph.getAdjacencyList()));
 
         } catch (NumberFormatException e) {
             System.err.println("Invalid number format. Please enter valid integers for nodes and edges.");

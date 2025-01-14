@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphfx.graphcoloring.test.LeaderboardController">
+
+    <top>
+        <!-- Back Button -->
+        <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Button text="Back" onAction="#handleBackButton" />
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="leaderboardTable" prefWidth="600" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="usernameColumn" text="Username" prefWidth="200" />
+                <TableColumn fx:id="scoreColumn" text="Score" prefWidth="150" />
+                <TableColumn fx:id="timeColumn" text="Time (s)" prefWidth="150" />
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="150" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

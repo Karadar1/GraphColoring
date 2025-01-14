@@ -1,4 +1,4 @@
-package models;
+package graphfx.graphcoloring.test;
 
 import java.util.HashSet;
 import java.util.Map;

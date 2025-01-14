@@ -1,4 +1,4 @@
-package models;
+package graphfx.graphcoloring.test;
 
 import java.io.*;
 import java.util.HashSet;
@@ -8,7 +8,7 @@ public class Input {
 
     // Method to read the file and build the graph from the neighbor format
     // Method to validate a single line of input
-    private boolean validateInputLine(String line) {
+    boolean validateInputLine(String line) {
         if (line == null || line.trim().isEmpty()) {
             System.out.println("Invalid line: Line is empty.");
             return false;

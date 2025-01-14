@@ -1,6 +1,6 @@
 //Class A
 
-package models;
+package graphfx.graphcoloring.test;
 
 
 import exceptions.InvalidColoringError;
@@ -19,6 +19,8 @@ public class Game implements Printable {
     String startString;
     private Color selectedColor;
     private ArrayList<Color> usedColors;
+    GameController gameController;
+    private Runnable onGameComplete; // Callback to inform GameController
 
     public Game(String startString ) {
         this.startString = startString;
@@ -30,6 +32,11 @@ public class Game implements Printable {
                 Color.MAGENTA
 
         ));
+    }
+
+
+    public void setOnGameComplete(Runnable onGameComplete) {
+        this.onGameComplete = onGameComplete;
     }
 
     public void drawColorCircles(VBox colorsBox) {
@@ -91,6 +98,10 @@ public class Game implements Printable {
             alert.setHeaderText(null);
             alert.setContentText("Congratulations! The graph is fully colored.");
             alert.showAndWait();
+            if (onGameComplete != null) {
+                onGameComplete.run(); // Trigger the callback
+            }
+
         }
     }
 
@@ -118,5 +129,13 @@ public class Game implements Printable {
     @Override
     public void print() {
         System.out.println(startString);
+    }
+
+    public ArrayList<Color> getUsedColors() {
+        return usedColors;
+    }
+
+    public String getStartString() {
+        return startString;
     }
 }

@@ -1,4 +1,4 @@
-package models;
+package graphfx.graphcoloring.test;
 
 import interfaces.Drawable;
 import interfaces.Printable;
@@ -6,12 +6,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import org.jetbrains.annotations.NotNull;
 
 public class Node implements Drawable,Comparable<Node>, Printable {
     private final int id;
-    private final double x;
-    private final double y;
+    private double x;
+    private double y;
     private Circle circle;
 
     public Node(int id, double x, double y) {
@@ -22,7 +21,7 @@ public class Node implements Drawable,Comparable<Node>, Printable {
 
     public void draw(Pane pane) {
         // Draw the circle
-        this.circle = new Circle(x, y, 20);
+        this.circle = new Circle(x, y, Math.max(10, pane.getWidth() / 100));
         this.circle.setFill(Color.WHITE);
         this.circle.setStroke(Color.BLACK);
 
@@ -45,6 +44,13 @@ public class Node implements Drawable,Comparable<Node>, Printable {
 
     public double getY() {
         return y;
+    }
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     public int getId() {

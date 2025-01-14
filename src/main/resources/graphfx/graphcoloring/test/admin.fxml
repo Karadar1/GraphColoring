@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphfx.graphcoloring.test.AdminController">
+    <top>
+        <Label text="Admin Panel - Create Levels" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    </top>
+    <center>
+        <VBox spacing="10.0" alignment="CENTER">
+            <TextField fx:id="levelNameField" promptText="Level Name" />
+            <TextArea fx:id="levelDescriptionField" promptText="Level Description" />
+            <ChoiceBox fx:id="difficultyChoiceBox">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Easy" />
+                        <String fx:value="Medium" />
+                        <String fx:value="Hard" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <Button text="Choose File" onAction="#handleChooseFile" />
+            <Label fx:id="fileLabel" text="No file selected" />
+            <Button text="Create Level" onAction="#handleCreateLevel" />
+        </VBox>
+    </center>
+    <bottom>
+        <Button text="Back" onAction="#handleBackButton" />
+    </bottom>
+</BorderPane>

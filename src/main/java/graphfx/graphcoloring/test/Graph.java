@@ -1,7 +1,7 @@
 //CLASS B
 
 
-package models;
+package graphfx.graphcoloring.test;
 
 import interfaces.Printable;
 import javafx.scene.layout.Pane;
@@ -39,19 +39,19 @@ public class Graph implements Printable {
 
     // Add an edge between two vertices (undirected graph)
     public void addEdge(int vertex1, int vertex2) {
-        try {
-            if (vertex1 == vertex2) {
-                throw new IllegalArgumentException("Self-loops are not allowed in this graph.");
-            }
-        }catch(IllegalArgumentException e){
-            System.err.println("Invalid operation: " + e.getMessage());
-            // Additional logging or alternative action, such as prompting the user for different nodes
+        // Check for self-loops
+        if (vertex1 == vertex2) {
+            System.err.println("Invalid operation: Self-loops are not allowed in this graph.");
+            return; // Exit the method if a self-loop is detected
         }
 
-        adjacencyList.putIfAbsent(vertex1, new HashSet<Integer>());
-        adjacencyList.putIfAbsent(vertex2, new HashSet<Integer>());
+        // Add the vertices if they are not already in the adjacency list
+        adjacencyList.putIfAbsent(vertex1, new HashSet<>());
+        adjacencyList.putIfAbsent(vertex2, new HashSet<>());
+
+        // Add the edge (undirected graph)
         adjacencyList.get(vertex1).add(vertex2);
-        adjacencyList.get(vertex2).add(vertex1);  // For undirected graphs
+        adjacencyList.get(vertex2).add(vertex1);
     }
 
 
@@ -71,10 +71,10 @@ public class Graph implements Printable {
     //CHANGES
 
 
-    public void initializeNodes() {
+    public void initializeNodes(Pane borderPane) {
         int numNodes = adjacencyList.size();
-        double paneWidth = 1750;
-        double paneHeight = 1080;
+        double paneWidth = borderPane.getWidth(); // Get current pane width
+        double paneHeight = borderPane.getHeight(); // Get current pane height
         double margin = 50; // Margin to keep nodes away from edges
         double minDistance = 50; // Minimum distance between nodes
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphfx.graphcoloring.test.LevelsController">
+    <top>
+<!--        <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-padding: 10;">-->
+<!--            <Button text="Back" onAction="#handleBackButton" />-->
+<!--            <Label text="Level Management" style="-fx-font-size: 24px; -fx-font-weight: bold;" />-->
+<!--        </HBox>-->
+    </top>
+    <center>
+        <TableView fx:id="levelsTable" prefWidth="600" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150" />
+                <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="250" />
+                <TableColumn fx:id="difficultyColumn" text="Difficulty" prefWidth="100" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+<!--        <HBox spacing="10.0" alignment="CENTER" style="-fx-padding: 10;">-->
+<!--            <Button text="Add Level" onAction="#handleAddLevel" />-->
+<!--            <Button text="Edit Level" onAction="#handleEditLevel" />-->
+<!--            <Button text="Delete Level" onAction="#handleDeleteLevel" />-->
+<!--        </HBox>-->
+    </bottom>
+</BorderPane>

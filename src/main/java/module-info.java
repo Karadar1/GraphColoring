@@ -12,12 +12,11 @@ module graphfx.graphcoloring {
     requires com.almasb.fxgl.all;
     requires java.desktop;
     requires annotations;
+    requires java.sql;
 
-    opens graphfx.graphcoloring to javafx.fxml;
-    exports graphfx.graphcoloring;
+    opens graphfx.graphcoloring.test to javafx.fxml;
+    exports graphfx.graphcoloring.test;
     exports controllers;
     opens controllers to javafx.fxml;
-    exports models;
     exports exceptions;
-    opens models to javafx.fxml;
 }

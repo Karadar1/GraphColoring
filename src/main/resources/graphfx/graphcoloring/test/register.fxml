@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphfx.graphcoloring.test.RegisterController">
+    <center>
+        <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+            <Label text="Register" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+            <TextField fx:id="usernameField" promptText="Username" prefWidth="250.0" />
+            <PasswordField fx:id="passwordField" promptText="Password" prefWidth="250.0" />
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" prefWidth="250.0" />
+            <Button text="Register" onAction="#handleRegister" prefWidth="120.0" />
+            <Label fx:id="errorLabel" textFill="red" />
+        </VBox>
+    </center>
+</BorderPane>

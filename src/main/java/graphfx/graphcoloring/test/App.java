@@ -1,4 +1,4 @@
-package graphfx.graphcoloring;
+package graphfx.graphcoloring.test;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class App extends Application {
 
@@ -58,7 +61,7 @@ public class App extends Application {
     private void loadDefaultScene(Stage stage) {
         try {
             // If you have a default FXML, load it here. Otherwise, a simple scene or alert can be shown.
-            Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("first.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Default Scene");
@@ -71,6 +74,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args); // Pass command-line arguments here
+        launch(args);// Pass command-line arguments here
     }
 }

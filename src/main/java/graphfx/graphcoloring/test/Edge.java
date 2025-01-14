@@ -1,4 +1,4 @@
-package models;
+package graphfx.graphcoloring.test;
 
 import interfaces.Drawable;
 import interfaces.Printable;
@@ -30,5 +30,12 @@ public class Edge implements Drawable,Comparable<Edge>, Printable {
     }
     public void print() {
         System.out.println("Edge: (" + node1.getId() + ", " + node2.getId() + ")");
+    }
+
+    public Node getNode1() {
+        return node1;
+    }
+    public Node getNode2() {
+        return node2;
     }
 }
